@@ -1,0 +1,48 @@
+Syarat aplikasi
+
+Penting (jalankan aplikasi pendukung di Bawah ini sesuai versi ini, yang telah di sertakan dalam bundel paket instalasi)
+Frontend 	: node.js version 16.15.0
+Backend		: php version PHP 7.2.34
+
+
+Instaler ini terdiri dari sourcode dan database
+
+sourcode (Frontend 	: node.js version 16.15.0 dan 	Backend	: php version PHP 7.2.34)
+database (mysql bisa pakai xamp)
+
+Step instalasi aplikasi pendukung
+1. jalankan aplikasi / install xampp (xampp-windows-x64-7.2.34-0-VC15-installer)
+2. jalankan aplikasi/install node.js (node-v16.15.0-x64)
+=====================================================================================================================================
+Step instalasi aplikasi resto
+1. untuk menjalankan server backend maka bukak xampp yang telah terinstalsi di pc pada browser anda seperti gambar(image-alamat-db-mysql)
+	dan jalankan server xampp apache dan mysql (dapat di lihat di image image-server-xampp-running),
+   	maka otomatis server backend dan data base akan running. 
+   	Step Jalankan xampp dan buat data base baru dengan nama (restoran_1_0_0) seperti pada gambar(image-db-terbentuk)
+2. jalankan restore databse restoran_1_0_0.sql yang berada di folder DATABASE kedalam db restoran_1_0_0 yang telah dibuat di xampp seperti gambar(image-db-terbentuk).
+3. jalankan sql query yang berada difolde database sql.txt
+3. check apakah tabel sudah terpasang di db restoran_1_0_0 seperti gambar(image-db-terbentuk).
+4. tempatkan sourcode:
+	backend api-restoran ke dalam C:\xampp\htdocs atau (sesuai derektori \xampp\htdocs pc terkait).
+	dan 
+	frontend RESTORAN ke direktory D: anda, (sesuai keinginan)
+5. bukak cmd dan masuk ke directori frontend RESTORAN dan jalankan perintah
+	npm run serve (fungsi ini untuk menjalankan sistem frontend) seperti pada gambar(image-menjalankan-server-frontend-vuejs)
+	dan bila sudah 100 persen/running server frontend seperti gambar(image-server-frontend-running)
+	maka bukan browser anda dan masukan alamat http://localhost:8080/ atau http://192.168.175.225:8080/ sesuai gambar(running-di-browser)
+	
+MAKA SISTEM FRONT END DAN BACKEND ANDA BISA DI AKSES.
+
+
+catatan:
+1. untuk menghubungkan aplikasi frontend(restoran) dengan sistem backend, maka perlu setting di .env aplikasi frontend(restoran) sesuai aplikasi backend. contoh seperti gambar(image-setting-connction-frontend-vuejs-to-backend-php)
+2. untuk menghubungkan aplikasi backend(api-restoran) dengan database retoran_1_0_0 di mysql yang telah dibuat perlu setting di .env aplikasi backend(api-restoran), contoh seperti gambar(image-setting-connection-backend-php-to-db)
+
+
+bila menemukan error db tidak di temukan , bisa check .env backend php, dan kalo masih belum bisa clean projek dengan
+jalankan ini di terminal backend php:
+
+php artisan optimize:clear
+php artisan config:cache
+php artisan config:clear
+php artisan cache:clear
